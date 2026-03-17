@@ -1,0 +1,97 @@
+/* ===== BASE & RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  overflow-x: hidden;
+}
+
+/* Utilidades tipográficas */
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--verde-profundo);
+  line-height: 1.2;
+}
+.section-title-light { color: var(--crema); }
+
+.tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 12px;
+  display: block;
+}
+.tag-gold { color: var(--dorado-claro); }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 96px 0; }
+.section-alt { background: var(--crema-oscuro); }
+.section-dark {
+  background: linear-gradient(135deg, var(--verde-profundo), #0d2618);
+  color: var(--crema);
+  position: relative;
+  overflow: hidden;
+}
+.section-dark::before {
+  content: '🌿';
+  position: absolute;
+  font-size: 40vw;
+  opacity: 0.04;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.section-dark-inner { position: relative; z-index: 1; text-align: center; }
+
+/* Vistas (SPA) */
+.view { display: none; }
+.view.active { display: block; }
+.view-padded { padding: 100px 24px 48px; }
+
+/* Notif bar */
+.notif-bar {
+  background: var(--dorado);
+  color: var(--verde-profundo);
+  text-align: center;
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Toasts */
+.toast-container {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.toast {
+  background: var(--verde-profundo);
+  color: var(--crema);
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  animation: slideIn 0.3s ease;
+  max-width: 300px;
+  box-shadow: var(--sombra-lg);
+}
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}

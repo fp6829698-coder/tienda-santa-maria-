@@ -1,0 +1,21 @@
+/* ===== VARIABLES GLOBALES ===== */
+:root {
+  --verde-profundo: #1a3d2b;
+  --verde-medio: #2d6a4f;
+  --verde-claro: #52b788;
+  --crema: #faf6ef;
+  --crema-oscuro: #f0e8d8;
+  --dorado: #c9a84c;
+  --dorado-claro: #e8c97e;
+  --tierra: #8b5e3c;
+  --texto: #1a1a1a;
+  --texto-suave: #5a5a5a;
+  --blanco: #ffffff;
+  --rojo: #dc3545;
+  --verde-ok: #28a745;
+  --sombra: 0 4px 24px rgba(26,61,43,0.12);
+  --sombra-lg: 0 12px 48px rgba(26,61,43,0.18);
+  --radio: 2px;
+  --radio-lg: 6px;
+  --nav-height: 70px;
+}

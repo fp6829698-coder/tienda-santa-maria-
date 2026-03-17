@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tienda Herbal Santa Maria - Productos 100% Naturales y Orgánicos certificados por INVIMA">
+<meta property="og:title" content="Tienda Herbal Santa Maria 🌿">
+<meta property="og:description" content="Descubre el poder de la naturaleza con productos herbales certificados">
+<meta property="og:type" content="website">
+<title>🌿 Tienda Herbal Santa Maria</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- Barra de notificación -->
+<div class="notif-bar">🚚 Envío GRATIS en pedidos mayores a $80.000 COP · Productos certificados INVIMA</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showView('home')">
+      🌿 Santa <span>Maria</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a onclick="showView('home')">Inicio</a></li>
+      <li><a onclick="showSection('catalogo')">Catálogo</a></li>
+      <li><a onclick="showSection('blog')">Blog Herbal</a></li>
+      <li><a onclick="showSection('suscripcion')">Kit Bienestar</a></li>
+      <li><a onclick="showSection('contacto')">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon" onclick="toggleView('auth')" title="Mi cuenta">👤</button>
+      <button class="nav-icon" onclick="toggleCart()" title="Carrito">
+        🛒
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="nav-icon nav-admin-btn" onclick="showView('admin')" title="Panel Admin">ADMIN</button>
+      <button class="menu-toggle" onclick="toggleMenu()" id="menuToggle">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== VISTA: HOME ===================== -->
+<div id="view-home" class="view active">
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-leaves">🌿</div>
+    <div class="hero-content container">
+      <div class="hero-eyebrow">
+        <span>✦</span> Certificados INVIMA · Colombia · 100% Natural
+      </div>
+      <h1 class="hero-title">
+        La naturaleza,<br>en su <em>forma más pura</em>
+      </h1>
+      <p class="hero-sub">
+        Descubre nuestra colección de productos herbales orgánicos, cuidadosamente seleccionados para tu bienestar. Certificados, seguros y elaborados con amor.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary btn-gold" onclick="showSection('catalogo')">Explorar Catálogo</button>
+        <button class="btn-outline btn-outline-light" onclick="showSection('suscripcion')">Kit Bienestar Mensual</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">200+</div><div class="hero-stat-label">Productos naturales</div></div>
+        <div><div class="hero-stat-num">15k+</div><div class="hero-stat-label">Clientes satisfechos</div></div>
+        <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Certificación INVIMA</div></div>
+        <div><div class="hero-stat-num">5⭐</div><div class="hero-stat-label">Valoración promedio</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Strip -->
+  <div class="benefits-strip">
+    <div class="benefits-inner">
+      <div class="benefit-item"><span>🚚</span> Envío a toda Colombia</div>
+      <div class="benefit-item"><span>✅</span> Certificados INVIMA</div>
+      <div class="benefit-item"><span>🔒</span> Pago 100% seguro</div>
+      <div class="benefit-item"><span>↩️</span> Devoluciones fáciles</div>
+      <div class="benefit-item"><span>💬</span> Asesoría personalizada</div>
+    </div>
+  </div>
+
+  <!-- Categorías -->
+  <section id="categorias">
+    <div class="container">
+      <span class="tag">Explora por categoría</span>
+      <h2 class="section-title">Encuentra lo que<br>tu cuerpo necesita</h2>
+      <div class="cat-grid">
+        <div class="cat-card" onclick="filterByCategory('Tés Herbales')"><div class="cat-icon">🍵</div><div class="cat-name">Tés Herbales</div><div class="cat-count">34 productos</div></div>
+        <div class="cat-card" onclick="filterByCategory('Aceites Esenciales')"><div class="cat-icon">🫙</div><div class="cat-name">Aceites Esenciales</div><div class="cat-count">28 productos</div></div>
+        <div class="cat-card" onclick="filterByCategory('Suplementos')"><div class="cat-icon">💊</div><div class="cat-name">Suplementos</div><div class="cat-count">45 productos</div></div>
+        <div class="cat-card" onclick="filterByCategory('Cosméticos')"><div class="cat-icon">🌸</div><div class="cat-name">Cosméticos Naturales</div><div class="cat-count">22 productos</div></div>
+        <div class="cat-card" onclick="filterByCategory('Plantas Secas')"><div class="cat-icon">🌾</div><div class="cat-name">Plantas Secas</div><div class="cat-count">56 productos</div></div>
+        <div class="cat-card" onclick="filterByCategory('Tintura')"><div class="cat-icon">🧪</div><div class="cat-name">Tinturas Madre</div><div class="cat-count">19 productos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <section id="catalogo" class="section-alt">
+    <div class="container">
+      <div class="catalog-header">
+        <div>
+          <span class="tag">Nuestros Productos</span>
+          <h2 class="section-title">Catálogo Herbal</h2>
+          <div class="filters">
+            <button class="filter-btn active" onclick="setFilter(this, 'todos')">Todos</button>
+            <button class="filter-btn" onclick="setFilter(this, 'Tés Herbales')">Tés</button>
+            <button class="filter-btn" onclick="setFilter(this, 'Aceites Esenciales')">Aceites</button>
+            <button class="filter-btn" onclick="setFilter(this, 'Suplementos')">Suplementos</button>
+            <button class="filter-btn" onclick="setFilter(this, 'Cosméticos')">Cosméticos</button>
+            <button class="filter-btn" onclick="setFilter(this, 'invima')">✅ INVIMA</button>
+          </div>
+        </div>
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" placeholder="Buscar producto..." oninput="searchProducts(this.value)" id="searchInput">
+        </div>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog">
+    <div class="container">
+      <span class="tag">Conocimiento herbal</span>
+      <h2 class="section-title">Blog de Bienestar</h2>
+      <div class="blog-grid" id="blogGrid"></div>
+    </div>
+  </section>
+
+  <!-- Suscripción -->
+  <section id="suscripcion" class="section-dark">
+    <div class="container section-dark-inner">
+      <span class="tag tag-gold">Exclusivo · Personalizado</span>
+      <h2 class="section-title section-title-light">Kit Bienestar Mensual</h2>
+      <p class="hero-sub">Una curaduría exclusiva de productos herbales enviada cada mes a tu puerta. Personalizada según tus necesidades.</p>
+      <div class="kit-card">
+        <div class="kit-price">$89.900 <sub>/mes</sub></div>
+        <p class="kit-before">Antes $110.000 · Ahorra 18%</p>
+        <ul class="kit-features">
+          <li>4–6 productos seleccionados por expertos herbales</li>
+          <li>Personalización según tus preferencias de bienestar</li>
+          <li>Descuento del 10–15% en productos incluidos</li>
+          <li>Guía de uso y recetas herbales exclusivas</li>
+          <li>Envío gratis prioritario incluido</li>
+          <li>Cancela o pausa cuando quieras</li>
+        </ul>
+        <button class="btn-primary btn-gold btn-full btn-lg" onclick="suscribirse()">Suscribirme Ahora ✦</button>
+        <p class="kit-legal">Facturación mensual automática vía MercadoPago · Sin permanencia mínima</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section-alt">
+    <div class="container">
+      <span class="tag">Estamos aquí para ti</span>
+      <h2 class="section-title">Contáctanos</h2>
+      <div class="contact-grid">
+        <form class="contact-form" onsubmit="submitContact(event)">
+          <div class="form-group"><label>Nombre completo</label><input type="text" placeholder="Tu nombre" required></div>
+          <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+          <div class="form-group">
+            <label>Asunto</label>
+            <select>
+              <option>Consulta sobre un producto</option>
+              <option>Pedido o envío</option>
+              <option>Suscripción Kit Bienestar</option>
+              <option>Asesoría personalizada</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Mensaje</label><textarea placeholder="Cuéntanos cómo podemos ayudarte..."></textarea></div>
+          <button type="submit" class="btn-primary">Enviar mensaje</button>
+        </form>
+        <div class="contact-info">
+          <div class="contact-info-item"><div class="contact-info-icon">📍</div><div><strong>Ubicación</strong><p>Cra. 15 #80–42, Bogotá D.C., Colombia</p></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon">📞</div><div><strong>Teléfono / WhatsApp</strong><p>+57 (601) 234-5678</p></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon">📧</div><div><strong>Correo</strong><p>hola@herbalsantamaria.co</p></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon">🕐</div><div><strong>Horario de atención</strong><p>Lun–Vie: 8am–6pm · Sáb: 9am–2pm</p></div></div>
+          <div class="social-links">
+            <a class="social-link" title="Instagram">📸</a>
+            <a class="social-link" title="Facebook">👥</a>
+            <a class="social-link" title="WhatsApp">💬</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">🌿 Tienda Herbal Santa Maria</div>
+          <p>Emprendimiento colombiano dedicado a llevar el poder de la naturaleza a tu hogar. Productos 100% orgánicos y certificados INVIMA.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Tienda</h4>
+          <ul class="footer-links">
+            <li><a onclick="showSection('catalogo')">Catálogo</a></li>
+            <li><a onclick="filterByCategory('Tés Herbales')">Tés Herbales</a></li>
+            <li><a onclick="filterByCategory('Aceites Esenciales')">Aceites Esenciales</a></li>
+            <li><a onclick="showSection('suscripcion')">Kit Bienestar</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul class="footer-links">
+            <li><a>Sobre Nosotros</a></li>
+            <li><a>Certificaciones INVIMA</a></li>
+            <li><a onclick="showSection('blog')">Blog Herbal</a></li>
+            <li><a onclick="showSection('contacto')">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ayuda</h4>
+          <ul class="footer-links">
+            <li><a>Política de envíos</a></li>
+            <li><a>Devoluciones</a></li>
+            <li><a>Política de privacidad</a></li>
+            <li><a>Términos y condiciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Tienda Herbal Santa Maria. Todos los derechos reservados.</span>
+        <div class="footer-certif">
+          <span class="certif-badge">INVIMA Certificado</span>
+          <span class="certif-badge">🔒 SSL Seguro</span>
+          <span class="certif-badge">MercadoPago</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== VISTA: AUTH ===================== -->
+<div id="view-auth" class="view">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="logo-icon">🌿</div>
+        <div class="auth-brand-name">Santa Maria</div>
+      </div>
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchAuthTab('login', this)">Iniciar Sesión</button>
+        <button class="auth-tab" onclick="switchAuthTab('register', this)">Registrarse</button>
+      </div>
+      <div id="auth-login">
+        <form onsubmit="doLogin(event)" class="auth-form">
+          <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+          <div class="form-group"><label>Contraseña</label><input type="password" placeholder="••••••••" required></div>
+          <div class="auth-forgot"><a>¿Olvidaste tu contraseña?</a></div>
+          <button type="submit" class="btn-primary btn-full btn-lg">Ingresar</button>
+          <p class="auth-switch">¿No tienes cuenta? <a onclick="switchAuthTab('register')">Regístrate</a></p>
+        </form>
+      </div>
+      <div id="auth-register" style="display:none;">
+        <form onsubmit="doRegister(event)" class="auth-form">
+          <div class="form-row-2">
+            <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label>Apellido</label><input type="text" placeholder="Apellido" required></div>
+          </div>
+          <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+57 300 000 0000"></div>
+          <div class="form-group"><label>Contraseña</label><input type="password" placeholder="Mín. 8 caracteres, 1 mayúscula y 1 número" required></div>
+          <div class="form-group"><label>Dirección de envío</label><input type="text" placeholder="Calle, carrera, barrio, ciudad"></div>
+          <p class="auth-terms">Al registrarte aceptas nuestros <a>Términos y Condiciones</a> y <a>Política de Privacidad</a>.</p>
+          <button type="submit" class="btn-primary btn-full btn-lg">Crear Cuenta</button>
+        </form>
+      </div>
+      <button onclick="showView('home')" class="auth-back">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VISTA: PORTAL USUARIO ===================== -->
+<div id="view-portal" class="view view-padded">
+  <div class="container">
+    <div class="portal-grid">
+      <div class="portal-sidebar">
+        <div class="portal-avatar">👤</div>
+        <div class="portal-name">María García</div>
+        <div class="portal-email">maria@email.com</div>
+        <div style="margin-top:12px;"><span class="badge-invima">Cliente Fiel</span></div>
+        <ul class="portal-menu">
+          <li class="active" onclick="setPortalTab(this)">📦 Mis Pedidos</li>
+          <li onclick="setPortalTab(this)">👤 Mi Perfil</li>
+          <li onclick="setPortalTab(this)">🌿 Mi Suscripción</li>
+          <li onclick="setPortalTab(this)">📍 Direcciones</li>
+          <li onclick="showView('home')">← Cerrar Sesión</li>
+        </ul>
+      </div>
+      <div class="portal-content">
+        <div class="portal-card">
+          <h3>Mis Pedidos Recientes</h3>
+          <div class="order-row">
+            <div><div class="order-id">#ORD-2026-0312</div><div class="order-items">Té Manzanilla Orgánica × 2, Aceite de Lavanda × 1</div><div class="order-date">28 Feb 2026</div></div>
+            <div class="order-right"><span class="order-status status-entregado">Entregado</span><div class="order-total">$68.500</div></div>
+          </div>
+          <div class="order-row">
+            <div><div class="order-id">#ORD-2026-0298</div><div class="order-items">Kit Bienestar Mensual · Febrero</div><div class="order-date">1 Feb 2026</div></div>
+            <div class="order-right"><span class="order-status status-entregado">Entregado</span><div class="order-total">$89.900</div></div>
+          </div>
+          <div class="order-row">
+            <div><div class="order-id">#ORD-2026-0356</div><div class="order-items">Suplemento Cúrcuma Orgánica × 1, Tintura Equinácea × 1</div><div class="order-date">5 Mar 2026</div></div>
+            <div class="order-right"><span class="order-status status-enviado">En camino</span><div class="order-total">$75.200</div></div>
+          </div>
+        </div>
+        <div class="portal-card">
+          <h3>Suscripción Kit Bienestar</h3>
+          <div class="kit-active-banner">
+            <span style="font-size:2.5rem;">🌿</span>
+            <div>
+              <div class="kit-active-title">Plan Mensual Activo</div>
+              <div class="kit-active-sub">Próximo envío: 1 de Abril 2026</div>
+              <div class="kit-active-price">$89.900/mes · 10% descuento activo</div>
+            </div>
+            <button class="btn-outline" onclick="showToast('⚙️ Gestión de suscripción')">Gestionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VISTA: CHECKOUT ===================== -->
+<div id="view-checkout" class="view view-padded">
+  <div class="container">
+    <h1 class="section-title" style="margin-bottom:12px;">Finalizar Compra</h1>
+    <div class="checkout-steps">
+      <div class="step done" id="step1"><div class="step-num">✓</div><span class="step-label">Carrito</span></div>
+      <div class="step-line"></div>
+      <div class="step active" id="step2"><div class="step-num">2</div><span class="step-label">Envío</span></div>
+      <div class="step-line"></div>
+      <div class="step" id="step3"><div class="step-num">3</div><span class="step-label">Pago</span></div>
+    </div>
+    <div class="checkout-grid">
+      <div>
+        <div class="checkout-box" id="checkoutStep2">
+          <h3 class="checkout-box-title">Datos de Envío</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+            <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido"></div>
+          </div>
+          <div class="form-group" style="margin-top:16px;"><label>Dirección</label><input type="text" placeholder="Calle, número, apartamento"></div>
+          <div class="form-row-2" style="margin-top:16px;">
+            <div class="form-group"><label>Ciudad</label><input type="text" placeholder="Ciudad"></div>
+            <div class="form-group"><label>Departamento</label>
+              <select><option>Cundinamarca</option><option>Antioquia</option><option>Valle del Cauca</option><option>Atlántico</option><option>Santander</option></select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:16px;"><label>Teléfono de contacto</label><input type="tel" placeholder="+57 300 000 0000"></div>
+          <div class="shipping-notice">🚚 <strong>Costo de envío calculado:</strong> $8.500 COP (Bogotá) · Llegada estimada: 2–4 días hábiles</div>
+          <button class="btn-primary btn-full btn-lg" style="margin-top:24px;" onclick="goToPayment()">Continuar al Pago →</button>
+        </div>
+        <div class="checkout-box" id="checkoutStep3" style="display:none;">
+          <h3 class="checkout-box-title">Método de Pago</h3>
+          <p class="checkout-mp-sub">Procesado de forma segura por MercadoPago</p>
+          <div class="payment-methods">
+            <div class="payment-option selected" onclick="selectPayment(this)"><div class="pay-icon">💳</div><div class="pay-name">Tarjeta Crédito/Débito</div></div>
+            <div class="payment-option" onclick="selectPayment(this)"><div class="pay-icon">🏦</div><div class="pay-name">PSE</div></div>
+            <div class="payment-option" onclick="selectPayment(this)"><div class="pay-icon">💵</div><div class="pay-name">Efecty</div></div>
+            <div class="payment-option" onclick="selectPayment(this)"><div class="pay-icon">🏪</div><div class="pay-name">Baloto</div></div>
+          </div>
+          <div class="card-fields">
+            <div class="form-group"><label>Número de tarjeta</label><input type="text" placeholder="0000 0000 0000 0000"></div>
+            <div class="form-row-2">
+              <div class="form-group"><label>Vencimiento</label><input type="text" placeholder="MM/AA"></div>
+              <div class="form-group"><label>CVV</label><input type="text" placeholder="123"></div>
+            </div>
+          </div>
+          <button class="btn-primary btn-full" style="padding:18px; margin-top:24px; font-size:1rem;" onclick="completePurchase()">🔒 Pagar Ahora con MercadoPago</button>
+          <p class="checkout-security-note">Pago 100% seguro · Certificado SSL · Cumplimiento PCI-DSS</p>
+        </div>
+      </div>
+      <div class="checkout-box checkout-summary">
+        <h3 class="checkout-box-title">Resumen del Pedido</h3>
+        <div id="checkoutSummary"></div>
+        <div class="summary-divider"></div>
+        <div class="cart-subtotal"><span>Subtotal</span><span id="ckSubtotal">$0</span></div>
+        <div class="cart-subtotal"><span>Envío</span><span>$8.500</span></div>
+        <div class="cart-subtotal"><span>IVA (19%)</span><span id="ckIva">$0</span></div>
+        <div class="cart-total"><span>Total</span><span id="ckTotal">$0</span></div>
+        <p class="summary-currency">Moneda: Peso Colombiano (COP)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VISTA: ADMIN ===================== -->
+<div id="view-admin" class="view">
+  <div class="admin-wrapper">
+    <div class="admin-layout">
+      <div class="admin-sidebar">
+        <div class="admin-logo">🌿 Panel Admin</div>
+        <ul class="admin-menu">
+          <li class="active" onclick="setAdminTab('dashboard', this)">📊 Dashboard</li>
+          <li onclick="setAdminTab('productos', this)">📦 Productos</li>
+          <li onclick="setAdminTab('pedidos', this)">🛒 Pedidos</li>
+          <li onclick="setAdminTab('usuarios', this)">👥 Usuarios</li>
+          <li onclick="setAdminTab('suscripciones', this)">🌿 Suscripciones</li>
+          <li onclick="setAdminTab('blog', this)">✍️ Blog</li>
+          <li onclick="setAdminTab('reportes', this)">📈 Reportes</li>
+          <li class="admin-menu-back" onclick="showView('home')">← Ver Tienda</li>
+        </ul>
+      </div>
+      <div class="admin-main" id="adminMain">
+
+        <!-- Dashboard -->
+        <div id="admin-dashboard">
+          <div class="admin-header">
+            <div class="admin-page-title">Dashboard</div>
+            <div class="admin-date">Lunes, 9 de Marzo 2026</div>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-card"><div class="metric-icon">💰</div><div class="metric-value">$2.4M</div><div class="metric-label">Ventas del Mes</div><div class="metric-trend trend-up">▲ 12% vs mes anterior</div></div>
+            <div class="metric-card"><div class="metric-icon">📦</div><div class="metric-value">47</div><div class="metric-label">Pedidos Pendientes</div><div class="metric-trend trend-down">▼ 3 urgentes</div></div>
+            <div class="metric-card"><div class="metric-icon">🌿</div><div class="metric-value">128</div><div class="metric-label">Suscripciones Activas</div><div class="metric-trend trend-up">▲ 8 nuevas este mes</div></div>
+            <div class="metric-card"><div class="metric-icon">⚠️</div><div class="metric-value">7</div><div class="metric-label">Bajo Stock</div><div class="metric-trend trend-down">▼ Acción requerida</div></div>
+            <div class="metric-card"><div class="metric-icon">👥</div><div class="metric-value">1.247</div><div class="metric-label">Usuarios Registrados</div><div class="metric-trend trend-up">▲ 45 nuevos</div></div>
+          </div>
+          <div class="chart-placeholder">
+            <div class="chart-header">
+              <div class="chart-title">Ventas por Mes (2026)</div>
+              <div style="display:flex; gap:8px;">
+                <button class="filter-btn active" style="font-size:0.75rem;padding:6px 14px;">Semana</button>
+                <button class="filter-btn" style="font-size:0.75rem;padding:6px 14px;">Mes</button>
+                <button class="filter-btn" style="font-size:0.75rem;padding:6px 14px;">Año</button>
+              </div>
+            </div>
+            <div class="chart-bars" id="chartBars"></div>
+            <div class="chart-labels" id="chartLabels"></div>
+          </div>
+          <div class="admin-table-wrap">
+            <div class="admin-table-header">
+              <span style="font-weight:500;">Pedidos Recientes</span>
+              <button class="btn-outline" style="font-size:0.75rem;padding:8px 16px;" onclick="setAdminTab('pedidos')">Ver todos</button>
+            </div>
+            <table><thead><tr><th>#Pedido</th><th>Cliente</th><th>Productos</th><th>Total</th><th>Estado</th><th>Acción</th></tr></thead>
+            <tbody id="adminOrderTable"></tbody></table>
+          </div>
+        </div>
+
+        <!-- Productos -->
+        <div id="admin-productos" style="display:none;">
+          <div class="admin-header">
+            <div class="admin-page-title">Gestión de Productos</div>
+            <button class="btn-primary" onclick="openProductModal()">+ Nuevo Producto</button>
+          </div>
+          <div class="admin-table-wrap">
+            <div class="admin-table-header">
+              <div class="search-bar" style="min-width:200px;"><span>🔍</span><input type="text" placeholder="Buscar producto..."></div>
+              <select style="border:1px solid rgba(26,61,43,0.15);border-radius:4px;padding:8px 12px;font-size:0.85rem;"><option>Todas las categorías</option></select>
+            </div>
+            <table><thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>INVIMA</th><th>Estado</th><th>Acciones</th></tr></thead>
+            <tbody id="adminProductTable"></tbody></table>
+          </div>
+        </div>
+
+        <!-- Pedidos Admin -->
+        <div id="admin-pedidos" style="display:none;">
+          <div class="admin-header">
+            <div class="admin-page-title">Gestión de Pedidos</div>
+            <button class="btn-outline" style="font-size:0.85rem;" onclick="exportarReporte()">📄 Exportar PDF</button>
+          </div>
+          <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Pendientes</button>
+            <button class="filter-btn">Procesando</button>
+            <button class="filter-btn">Enviados</button>
+            <button class="filter-btn">Entregados</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table><thead><tr><th>#Pedido</th><th>Cliente</th><th>Fecha</th><th>Total</th><th>Estado</th><th>Guía</th><th>Acciones</th></tr></thead>
+            <tbody id="adminAllOrderTable"></tbody></table>
+          </div>
+        </div>
+
+        <!-- Usuarios Admin -->
+        <div id="admin-usuarios" style="display:none;">
+          <div class="admin-header"><div class="admin-page-title">Gestión de Usuarios</div></div>
+          <div class="admin-table-wrap">
+            <table><thead><tr><th>Usuario</th><th>Email</th><th>Teléfono</th><th>Pedidos</th><th>Rol</th><th>Registro</th></tr></thead>
+            <tbody id="adminUserTable"></tbody></table>
+          </div>
+        </div>
+
+        <!-- Suscripciones Admin -->
+        <div id="admin-suscripciones" style="display:none;">
+          <div class="admin-header"><div class="admin-page-title">Suscripciones Kit Bienestar</div></div>
+          <div class="metrics-grid" style="margin-bottom:24px;">
+            <div class="metric-card"><div class="metric-value">128</div><div class="metric-label">Suscripciones Activas</div></div>
+            <div class="metric-card"><div class="metric-value">$11.5M</div><div class="metric-label">Ingreso Recurrente Mensual</div></div>
+            <div class="metric-card"><div class="metric-value">94%</div><div class="metric-label">Tasa de Retención</div></div>
+          </div>
+          <div class="admin-table-wrap">
+            <table><thead><tr><th>Cliente</th><th>Plan</th><th>Inicio</th><th>Próximo cobro</th><th>Estado</th></tr></thead>
+            <tbody id="adminSubTable"></tbody></table>
+          </div>
+        </div>
+
+        <!-- Blog Admin -->
+        <div id="admin-blog" style="display:none;">
+          <div class="admin-header">
+            <div class="admin-page-title">Gestión del Blog</div>
+            <button class="btn-primary">+ Nuevo Artículo</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table><thead><tr><th>Título</th><th>Etiquetas</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr></thead>
+            <tbody id="adminBlogTable"></tbody></table>
+          </div>
+        </div>
+
+        <!-- Reportes -->
+        <div id="admin-reportes" style="display:none;">
+          <div class="admin-header"><div class="admin-page-title">Reportes y Analítica</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div class="portal-card">
+              <h3>Exportar Reporte de Ventas</h3>
+              <div class="form-group" style="margin-top:16px;"><label>Período</label><select><option>Este mes</option><option>Último trimestre</option><option>Este año</option></select></div>
+              <div style="display:flex;gap:12px;margin-top:20px;">
+                <button class="btn-primary" onclick="showToast('📄 Reporte PDF generado correctamente')">📄 Exportar PDF</button>
+                <button class="btn-outline" onclick="showToast('📊 Archivo Excel descargado')">📊 Exportar Excel</button>
+              </div>
+            </div>
+            <div class="portal-card">
+              <h3>Productos más vendidos</h3>
+              <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;" id="topProducts"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DETALLE PRODUCTO ===== -->
+<div class="product-detail-overlay" id="productDetailOverlay">
+  <div class="product-detail" style="position:relative;">
+    <button class="detail-close" onclick="closeProductDetail()">✕</button>
+    <div class="detail-img" id="detailImg"></div>
+    <div class="detail-info">
+      <div id="detailBadges" class="product-badges"></div>
+      <h2 id="detailName" class="detail-name"></h2>
+      <p id="detailDesc" class="detail-desc"></p>
+      <div class="detail-props-box"><strong>Propiedades Medicinales:</strong><p id="detailProps"></p></div>
+      <div class="detail-uso">🧾 <strong>Modo de uso:</strong> <span id="detailUso"></span></div>
+      <div class="detail-price-row">
+        <span id="detailPrice" class="detail-price"></span>
+        <span id="detailStock" class="stock-badge"></span>
+      </div>
+      <div class="qty-control">
+        <span class="qty-label">Cantidad:</span>
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <span class="qty-num" id="detailQty">1</span>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+      <div class="detail-actions">
+        <button class="btn-primary" style="flex:1;padding:14px;" onclick="addToCartFromDetail()">Agregar al Carrito 🛒</button>
+        <button class="btn-outline" style="padding:14px 20px;" onclick="showToast('❤️ Guardado en favoritos')">♡</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARRITO DRAWER ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div class="cart-title">Mi Carrito 🛒</div>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter"></div>
+</div>
+
+<!-- ===== MODAL PRODUCTO ADMIN ===== -->
+<div class="product-detail-overlay" id="productModal">
+  <div class="admin-modal">
+    <button class="detail-close" onclick="closeProductModal()">✕</button>
+    <h2 class="admin-modal-title">Nuevo Producto</h2>
+    <div class="admin-modal-form">
+      <div class="form-row-2">
+        <div class="form-group"><label>Nombre del Producto</label><input type="text" placeholder="Ej: Té de Manzanilla Orgánica"></div>
+        <div class="form-group"><label>Categoría</label><select><option>Tés Herbales</option><option>Aceites Esenciales</option><option>Suplementos</option><option>Cosméticos</option></select></div>
+      </div>
+      <div class="form-group"><label>Descripción</label><textarea placeholder="Descripción completa del producto..."></textarea></div>
+      <div class="form-group"><label>Propiedades Medicinales</label><input type="text" placeholder="Antiinflamatorio, digestivo, relajante..."></div>
+      <div class="form-row-3">
+        <div class="form-group"><label>Precio (COP)</label><input type="number" placeholder="45000"></div>
+        <div class="form-group"><label>Stock</label><input type="number" placeholder="100"></div>
+        <div class="form-group"><label>Umbral mín.</label><input type="number" placeholder="10"></div>
+      </div>
+      <div class="form-group">
+        <label>Imágenes (máx. 5 · JPG, PNG, WEBP · máx. 5MB)</label>
+        <input type="file" accept=".jpg,.jpeg,.png,.webp" multiple class="file-input">
+        <small>Las imágenes serán redimensionadas automáticamente a 800×800px</small>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="invimaCheck">
+        <label for="invimaCheck">Certificado INVIMA ✅</label>
+      </div>
+      <button class="btn-primary btn-full btn-lg" onclick="saveProduct()">Guardar Producto</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOASTS ===== -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/blog.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

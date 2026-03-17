@@ -1,0 +1,83 @@
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 70px; left: 0; right: 0;
+    background: var(--crema); padding: 20px;
+    box-shadow: var(--sombra); z-index: 999;
+  }
+
+  /* Hero */
+  .hero-content { padding: 60px 20px; }
+  .hero-stats { gap: 24px; }
+  .hero-ctas { flex-direction: column; }
+
+  /* Catálogo */
+  .catalog-header { flex-direction: column; align-items: flex-start; }
+  .search-bar { min-width: 100%; }
+
+  /* Producto detalle */
+  .product-detail { grid-template-columns: 1fr; }
+  .detail-img { border-radius: 12px 12px 0 0; min-height: 200px; font-size: 5rem; }
+
+  /* Carrito */
+  .cart-drawer { width: 100%; right: -100%; }
+
+  /* Contacto */
+  .contact-grid { grid-template-columns: 1fr; }
+
+  /* Checkout */
+  .checkout-grid { grid-template-columns: 1fr; }
+  .checkout-summary { position: static; }
+  .payment-methods { grid-template-columns: 1fr 1fr; }
+
+  /* Portal */
+  .portal-grid { grid-template-columns: 1fr; }
+
+  /* Admin */
+  .admin-layout { grid-template-columns: 1fr; }
+  .admin-sidebar { display: none; }
+  .admin-main { padding: 20px; }
+  .admin-table-wrap { overflow-x: auto; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-certif { flex-wrap: wrap; justify-content: center; }
+
+  /* Kit card */
+  .kit-card { padding: 28px 20px; }
+
+  /* Forms */
+  .form-row-2 { grid-template-columns: 1fr; }
+  .form-row-3 { grid-template-columns: 1fr; }
+
+  /* Benefit strip */
+  .benefits-inner { gap: 20px; }
+
+  /* Hero stats */
+  .hero-stats { flex-wrap: wrap; gap: 28px; }
+
+  /* Kit active banner */
+  .kit-active-banner { flex-wrap: wrap; }
+  .kit-active-banner .btn-outline { margin-left: 0; width: 100%; }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .payment-methods { grid-template-columns: 1fr; }
+}
