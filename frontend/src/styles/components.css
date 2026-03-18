@@ -35,6 +35,69 @@
 .btn-outline-light { border-color: rgba(250,246,239,0.5); color: var(--crema); }
 .btn-outline-light:hover { background: rgba(250,246,239,0.1); }
 
+/* ===== BOTONES SOCIALES ===== */
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 48%;
+  padding: 12px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radio);
+  background: white;
+  color: #333;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-social:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.btn-google:hover {
+  background: #f8f9fa;
+  border-color: #4285f4;
+  color: #4285f4;
+}
+.btn-facebook:hover {
+  background: #f8f9fa;
+  border-color: #1877f2;
+  color: #1877f2;
+}
+.social-icon {
+  font-size: 1.1rem;
+}
+.social-login-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+.auth-divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+.auth-divider span {
+  background: white;
+  padding: 0 16px;
+  color: #666;
+  font-size: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== BADGES ===== */
 .badge-invima {
   background: var(--dorado);

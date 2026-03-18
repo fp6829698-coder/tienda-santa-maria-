@@ -17,6 +17,11 @@ function setAdminTab(tab, el) {
   document.querySelectorAll('.admin-menu li').forEach(li => li.classList.remove('active'));
   if (el) el.classList.add('active');
   if (tab === 'reportes') renderTopProducts();
+  
+  // Actualizar información del admin cada vez que se cambia de pestaña
+  if (typeof updateAdminUserInfo === 'function') {
+    updateAdminUserInfo();
+  }
 }
 
 // ===== DASHBOARD =====

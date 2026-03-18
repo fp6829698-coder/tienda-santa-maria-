@@ -1,0 +1,31 @@
+{
+  "name": "tienda-herbal-santa-maria",
+  "version": "1.0.0",
+  "description": "Tienda Herbal Santa Maria - E-commerce de productos naturales certificados INVIMA",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && python -m http.server 8000",
+    "dev:backend": "cd backend && node src/server.js",
+    "build": "npm run build:frontend",
+    "start": "npm run start:backend",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "keywords": [
+    "ecommerce",
+    "herbal",
+    "natural",
+    "colombia",
+    "invima",
+    "tienda-online"
+  ],
+  "author": "Tienda Herbal Santa Maria",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

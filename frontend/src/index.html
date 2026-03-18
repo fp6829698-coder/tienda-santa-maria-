@@ -39,7 +39,7 @@
         🛒
         <span class="cart-badge" id="cartBadge">0</span>
       </button>
-      <button class="nav-icon nav-admin-btn" onclick="showView('admin')" title="Panel Admin">ADMIN</button>
+      <button class="nav-icon nav-admin-btn" id="adminNavBtn" onclick="checkAdminAccess() ? showView('admin') : null" title="Panel Admin" style="display:none;">ADMIN</button>
       <button class="menu-toggle" onclick="toggleMenu()" id="menuToggle">☰</button>
     </div>
   </div>
@@ -262,6 +262,22 @@
           <div class="form-group"><label>Contraseña</label><input type="password" placeholder="••••••••" required></div>
           <div class="auth-forgot"><a>¿Olvidaste tu contraseña?</a></div>
           <button type="submit" class="btn-primary btn-full btn-lg">Ingresar</button>
+          
+          <div class="auth-divider">
+            <span>o continúa con</span>
+          </div>
+          
+          <div class="social-login-buttons">
+            <button type="button" class="btn-social btn-google" onclick="loginWithGoogle()" title="Iniciar sesión con tu cuenta de Gmail">
+              <span class="social-icon">📧</span>
+              Gmail
+            </button>
+            <button type="button" class="btn-social btn-facebook" onclick="loginWithFacebook()" title="Iniciar sesión con tu cuenta de Facebook">
+              <span class="social-icon">👥</span>
+              Facebook
+            </button>
+          </div>
+          
           <p class="auth-switch">¿No tienes cuenta? <a onclick="switchAuthTab('register')">Regístrate</a></p>
         </form>
       </div>
@@ -277,6 +293,21 @@
           <div class="form-group"><label>Dirección de envío</label><input type="text" placeholder="Calle, carrera, barrio, ciudad"></div>
           <p class="auth-terms">Al registrarte aceptas nuestros <a>Términos y Condiciones</a> y <a>Política de Privacidad</a>.</p>
           <button type="submit" class="btn-primary btn-full btn-lg">Crear Cuenta</button>
+          
+          <div class="auth-divider">
+            <span>o regístrate con</span>
+          </div>
+          
+          <div class="social-login-buttons">
+            <button type="button" class="btn-social btn-google" onclick="loginWithGoogle()" title="Iniciar sesión con tu cuenta de Gmail">
+              <span class="social-icon">📧</span>
+              Gmail
+            </button>
+            <button type="button" class="btn-social btn-facebook" onclick="loginWithFacebook()" title="Iniciar sesión con tu cuenta de Facebook">
+              <span class="social-icon">👥</span>
+              Facebook
+            </button>
+          </div>
         </form>
       </div>
       <button onclick="showView('home')" class="auth-back">← Volver al inicio</button>
@@ -298,7 +329,7 @@
           <li onclick="setPortalTab(this)">👤 Mi Perfil</li>
           <li onclick="setPortalTab(this)">🌿 Mi Suscripción</li>
           <li onclick="setPortalTab(this)">📍 Direcciones</li>
-          <li onclick="showView('home')">← Cerrar Sesión</li>
+          <li onclick="logout()">← Cerrar Sesión</li>
         </ul>
       </div>
       <div class="portal-content">
@@ -404,6 +435,13 @@
     <div class="admin-layout">
       <div class="admin-sidebar">
         <div class="admin-logo">🌿 Panel Admin</div>
+        <div class="admin-user-info">
+          <div class="admin-avatar">👑</div>
+          <div class="admin-user-details">
+            <div class="admin-user-name" id="adminUserName">Administrador</div>
+            <div class="admin-user-email" id="adminUserEmail">admin@herbalsantamaria.co</div>
+          </div>
+        </div>
         <ul class="admin-menu">
           <li class="active" onclick="setAdminTab('dashboard', this)">📊 Dashboard</li>
           <li onclick="setAdminTab('productos', this)">📦 Productos</li>
@@ -413,6 +451,7 @@
           <li onclick="setAdminTab('blog', this)">✍️ Blog</li>
           <li onclick="setAdminTab('reportes', this)">📈 Reportes</li>
           <li class="admin-menu-back" onclick="showView('home')">← Ver Tienda</li>
+          <li class="admin-menu-logout" onclick="logout()">🚪 Cerrar Sesión</li>
         </ul>
       </div>
       <div class="admin-main" id="adminMain">
